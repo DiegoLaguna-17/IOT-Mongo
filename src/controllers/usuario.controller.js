@@ -1,5 +1,31 @@
 const usuarioService = require("../services/usuario.service")
 
+
+async function login(req, res) {
+    try {
+        const { correo, contrasenia } = req.body;
+        if (!correo || !contrasenia) {
+            return res.status(400).json({
+                success: false,
+                data: "Correo y contraseña son requeridos"
+            });
+        }
+
+        const usuarioData = await usuarioService.loginUsuario(correo, contrasenia);
+
+        res.json({
+            success: true,
+            data: usuarioData
+        });
+    } catch (error) {
+        res.status(401).json({
+            success: false,
+            data: error.message
+        });
+    }
+}
+
+
 const crearUsuario = async (req, res) => {
     try {
         const { nombre, correo, contrasenia } = req.body
@@ -24,5 +50,5 @@ const crearUsuario = async (req, res) => {
 }
 
 module.exports = {
-    crearUsuario
+    crearUsuario,login
 }
