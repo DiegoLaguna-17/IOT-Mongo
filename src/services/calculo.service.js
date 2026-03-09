@@ -17,7 +17,7 @@ const obtenerCalculosPorUsuario = async (usuarioId) => {
     const calculos = await Calculo
         .find(
             { usuario: usuarioId },
-            "resultado_aprox valor_real error fecha serie"
+            "resultado_aprox valor_real error fecha serie nombre_calculo"
         )
         .populate("serie", "nombre")
 

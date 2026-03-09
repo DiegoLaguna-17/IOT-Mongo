@@ -50,7 +50,10 @@ const calculoSchema = new mongoose.Schema({
     fecha: {
         type: Date,
         default: Date.now
-    }
+    },
+    nombre_calculo: {
+        type: String
+    },
 
 })
 

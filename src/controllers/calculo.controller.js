@@ -13,12 +13,14 @@ const crearCalculo = async (req, res) => {
 
     } catch (error) {
 
-        res.status(500).json({
-            success: false,
-            message: error.message
-        })
+    console.log("ERROR BACKEND:", error)
 
-    }
+    res.status(500).json({
+        success: false,
+        message: error.message
+    })
+
+}
 
 }
 
