@@ -1,7 +1,7 @@
 const Calculo = require("../models/calculo.model")
 require("../models/usuario.model")
 require("../models/serie.model")
-
+const Serie=require("../models/serie.model")
 const crearCalculo = async (data) => {
 
     const calculo = new Calculo(data)
@@ -33,6 +33,13 @@ const obtenerCalculoPorId = async (calculoId) => {
 
     return calculo
 }
+
+
+
+const obtenerDashPorFuncion=async(serie)=>{
+    const datos= await Calculo.find({serie:`${serie}`})
+    return datos
+}
 module.exports = {
-    crearCalculo, obtenerCalculosPorUsuario, obtenerCalculoPorId
+    crearCalculo, obtenerCalculosPorUsuario, obtenerCalculoPorId, obtenerDashPorFuncion
 }
