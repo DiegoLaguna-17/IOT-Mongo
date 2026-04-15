@@ -9,7 +9,7 @@ const serieSchema = new mongoose.Schema({
 
     funcion: {
         type: String,
-        enum: ["sin", "cos"],
+        enum: ["sin", "cos","arctan"],
         required: true
     },
 
@@ -24,4 +24,4 @@ const serieSchema = new mongoose.Schema({
 
 })
 
-module.exports = mongoose.model("series", serieSchema)
+module.exports = mongoose.model("series", serieSchema,"series")

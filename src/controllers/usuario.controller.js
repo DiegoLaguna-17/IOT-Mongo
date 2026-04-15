@@ -61,5 +61,5 @@ const crearUsuario = async (req, res) => {
 }
 
 module.exports = {
-    crearUsuario,login
+    crearUsuario,login, 
 }
